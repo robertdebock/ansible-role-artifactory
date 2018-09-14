@@ -34,6 +34,7 @@
     remote_src: yes
     owner: "{{ artifactory_user }}"
     group: "{{ artifactory_group }}"
+    creates: "{{ artifactory_home }}"
 
 - name: register software to sysvinit
   template:
@@ -60,3 +61,5 @@
     name: artifactory
     state: started
     enabled: yes
+  when:
+    - ansible_virtualization_type != "docker"
