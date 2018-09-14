@@ -8,7 +8,7 @@ driver:
 lint:
   name: yamllint
 platforms:
-  - name: artifacory-fedora-rawhide
+  - name: artifactory-fedora-rawhide
     image: fedora:rawhide
     registry:
       url: registry.fedoraproject.org

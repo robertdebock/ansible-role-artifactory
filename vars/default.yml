@@ -1,5 +1,5 @@
 ---
-# vars file for artifacory
+# vars file for artifactory
 artifactory_zip: "https://dl.bintray.com/jfrog/artifactory/jfrog-artifactory-oss-{{ artifactory_version }}.zip"
 artifactory_home: "{{ artifactory_download_directory }}/artifactory-oss-{{ artifactory_version }}"
 artifactory_user: artifactory

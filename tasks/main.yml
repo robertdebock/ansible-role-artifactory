@@ -1,5 +1,5 @@
 ---
-# tasks file for artifacory
+# tasks file for artifactory
 - name: load default variables
   include_vars:
     file: default.yml

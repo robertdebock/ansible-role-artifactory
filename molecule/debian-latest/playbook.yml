@@ -6,4 +6,4 @@
 
   roles:
     - role: robertdebock.bootstrap
-    - role: ansible-role-artifacory
+    - role: ansible-role-artifactory

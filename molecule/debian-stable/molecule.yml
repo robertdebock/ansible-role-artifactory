@@ -8,7 +8,7 @@ driver:
 lint:
   name: yamllint
 platforms:
-  - name: artifacory-debian-stable
+  - name: artifactory-debian-stable
     image: debian:stable
 provisioner:
   name: ansible

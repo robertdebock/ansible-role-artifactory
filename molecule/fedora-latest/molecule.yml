@@ -8,7 +8,7 @@ driver:
 lint:
   name: yamllint
 platforms:
-  - name: artifacory-fedora-latest
+  - name: artifactory-fedora-latest
     image: fedora:latest
 provisioner:
   name: ansible

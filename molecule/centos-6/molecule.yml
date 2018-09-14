@@ -8,7 +8,7 @@ driver:
 lint:
   name: yamllint
 platforms:
-  - name: artifacory-centos-6
+  - name: artifactory-centos-6
     image: centos:6
 provisioner:
   name: ansible

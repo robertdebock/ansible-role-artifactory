@@ -1,16 +1,16 @@
-artifacory
+artifactory
 =========
 
-[![Build Status](https://travis-ci.org/robertdebock/ansible-role-artifacory.svg?branch=master)](https://travis-ci.org/robertdebock/ansible-role-artifacory)
+[![Build Status](https://travis-ci.org/robertdebock/ansible-role-artifactory.svg?branch=master)](https://travis-ci.org/robertdebock/ansible-role-artifactory)
 
-Provides artifacory for your system.
+Provides artifactory for your system.
 
 Context
 --------
 This role is a part of many compatible roles. Have a look at [the documentation of these roles](https://robertdebock.nl/) for further information.
 
 Here is an overview of related roles:
-![dependencies](https://raw.githubusercontent.com/robertdebock/drawings/artifacts/artifacory.png "Dependency")
+![dependencies](https://raw.githubusercontent.com/robertdebock/drawings/artifacts/artifactory.png "Dependency")
 
 Requirements
 ------------
@@ -57,7 +57,7 @@ Example Playbook
 
 ```
 ---
-- name: artifacory
+- name: artifactory
   hosts: all
   gather_facts: no
   become: yes
@@ -65,18 +65,18 @@ Example Playbook
   roles:
     - role: robertdebock.bootstrap
     - role: robertdebock.java
-    - role: robertdebock.artifacory
+    - role: robertdebock.artifactory
 ```
 
 To install this role:
-- Install this role individually using `ansible-galaxy install robertdebock.artifacory`
+- Install this role individually using `ansible-galaxy install robertdebock.artifactory`
 
 Sample roles/requirements.yml: (install with `ansible-galaxy install -r roles/requirements.yml
 ```
 ---
 - name: robertdebock.bootstrap
 - name: robertdebock.java
-- name: robertdebock.artifacory
+- name: robertdebock.artifactory
 ```
 
 License
