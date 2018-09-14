@@ -1,0 +1,4 @@
+---
+# defaults file for artifacory
+artifactory_version: 6.3.3
+artifactory_download_directory: /opt

@@ -1,0 +1,62 @@
+---
+# tasks file for artifacory
+- name: load default variables
+  include_vars:
+    file: default.yml
+
+- name: load os-specific variables
+  include_vars: "{{ item }}"
+  with_first_found:
+    - "{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
+    - "{{ ansible_distribution }}.yml"
+    - default.yml
+
+- name: create group
+  group:
+    name: "{{ artifactory_group }}"
+    state: present
+
+- name: create user
+  user:
+    name: "{{ artifactory_user }}"
+    group: "{{ artifactory_group }}"
+    system: yes
+
+- name: ensure artifactory_download_directory exists
+  file:
+    path: "{{ artifactory_download_directory }}"
+    state: directory
+ 
+- name: download software
+  unarchive:
+    src: "{{ artifactory_zip }}"
+    dest: "{{ artifactory_download_directory }}"
+    remote_src: yes
+    owner: "{{ artifactory_user }}"
+    group: "{{ artifactory_group }}"
+
+- name: register software to sysvinit
+  template:
+    src: artifactory.j2
+    dest: "/etc/init.d/artifactory"
+    mode: 0750
+  when:
+    - ansible_service_mgr == "sysvinit" or ansible_service_mgr == "upstart"
+
+- name: register software to systemd
+  template:
+    src: artifactory.service.j2
+    dest: /etc/systemd/system/artifactory.service
+  when:
+    - ansible_service_mgr == "systemd"
+  notify:
+    - systemctl daemon-reload
+
+- name: flush handlers
+  meta: flush_handlers
+
+- name: start and enable software
+  service:
+    name: artifactory
+    state: started
+    enabled: yes
