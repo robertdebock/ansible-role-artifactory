@@ -1,22 +1,11 @@
 ---
 # tasks file for artifactory
-- name: load default variables
-  include_vars:
-    file: default.yml
-
-- name: load os-specific variables
-  include_vars: "{{ item }}"
-  with_first_found:
-    - "{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
-    - "{{ ansible_distribution }}.yml"
-    - default.yml
-
-- name: create group
+- name: create group for artifactory
   group:
     name: "{{ artifactory_group }}"
     state: present
 
-- name: create user
+- name: create user for artifactory
   user:
     name: "{{ artifactory_user }}"
     group: "{{ artifactory_group }}"
@@ -27,7 +16,7 @@
     path: "{{ artifactory_download_directory }}"
     state: directory
 
-- name: download software
+- name: download artifactory software
   unarchive:
     src: "{{ artifactory_zip }}"
     dest: "{{ artifactory_download_directory }}"
@@ -36,7 +25,7 @@
     group: "{{ artifactory_group }}"
     creates: "{{ artifactory_home }}"
 
-- name: register software to sysvinit
+- name: register artifactory to sysvinit
   template:
     src: artifactory.j2
     dest: "/etc/init.d/artifactory"
@@ -44,7 +33,7 @@
   when:
     - ansible_service_mgr == "sysvinit" or ansible_service_mgr == "upstart"
 
-- name: register software to systemd
+- name: register artifactory to systemd
   template:
     src: artifactory.service.j2
     dest: /etc/systemd/system/artifactory.service
@@ -56,7 +45,7 @@
 - name: flush handlers
   meta: flush_handlers
 
-- name: start and enable software
+- name: start and enable artifactory
   service:
     name: artifactory
     state: started
