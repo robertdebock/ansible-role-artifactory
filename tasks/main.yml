@@ -16,7 +16,7 @@
     path: "{{ artifactory_download_directory }}"
     state: directory
 
-- name: download artifactory software
+- name: download artifactory
   unarchive:
     src: "{{ artifactory_zip }}"
     dest: "{{ artifactory_download_directory }}"
@@ -24,6 +24,9 @@
     owner: "{{ artifactory_user }}"
     group: "{{ artifactory_group }}"
     creates: "{{ artifactory_home }}"
+  register: downloadartifactory
+  until: downloadartifactory is succeeded
+  retries: 3
 
 - name: register artifactory to sysvinit
   template:
