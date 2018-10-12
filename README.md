@@ -5,9 +5,9 @@ artifactory
 
 Provides artifactory for your system.
 
-[Unit tests](https://travis-ci.org/robertdebock/ansible-role-bootstrap) are done on every commit and periodically.
+[Unit tests](https://travis-ci.org/robertdebock/ansible-role-artifactory) are done on every commit and periodically.
 
-If you find issues, please register them in [GitHub](https://github.com/robertdebock/ansible-role-bootstrap/issues)
+If you find issues, please register them in [GitHub](https://github.com/robertdebock/ansible-role-artifactory/issues)
 
 To test this role locally please use [Molecule](https://github.com/metacloud/molecule):
 ```
