@@ -5,49 +5,69 @@ artifactory
 
 Provides artifactory for your system.
 
-[Unit tests](https://travis-ci.org/robertdebock/ansible-role-artifactory) are done on every commit and periodically.
 
-If you find issues, please register them in [GitHub](https://github.com/robertdebock/ansible-role-artifactory/issues)
+Example Playbook
+----------------
 
-To test this role locally please use [Molecule](https://github.com/metacloud/molecule):
+This example is taken from `molecule/default/playbook.yml`:
 ```
-pip install molecule
-molecule test
-```
-There are many scenarios available, please have a look in the `molecule/` directory.
+---
+- name: Converge
+  hosts: all
+  gather_facts: false
+  become: true
 
+  roles:
+    - role: robertdebock.bootstrap
+    - role: robertdebock.java
+    - role: ansible-role-artifactory
+
+```
+
+Role Variables
+--------------
+
+These variables are set in `defaults/main.yml`:
+```
+---
+# defaults file for artifactory
+
+# The version of Artifactory to install
+artifactory_version: 6.3.3
+
+# The location where Artifactory should install.
+artifactory_download_directory: /opt
+
+```
+
+Requirements
+------------
+
+- Access to a repository containing packages, likely on the internet.
+- A recent version of Ansible. (Tests run on the last 3 release of Ansible.)
+
+These roles can be installed to ensure all requirements are met:
+
+- none
+
+To install all requirements at once: `ansible-galaxy install -r requirements.yml`.
 
 Context
---------
+-------
+
 This role is a part of many compatible roles. Have a look at [the documentation of these roles](https://robertdebock.nl/) for further information.
 
 Here is an overview of related roles:
 ![dependencies](https://raw.githubusercontent.com/robertdebock/drawings/artifacts/artifactory.png "Dependency")
 
-Requirements
-------------
-
-- A system installed with required packages to run Ansible. Hint: [bootstrap](https://galaxy.ansible.com/robertdebock/bootstrap).
-- Access to a repository containing packages, likely on the internet.
-- A recent version of Ansible. (Tests run on the last 3 release of Ansible.)
-- Have java installed. Hint: [java](https://galaxy.ansible.com/robertdebock/java)
-
-Role Variables
---------------
-
-- artifactory_version: The version of artifactory to install. [default: 6.3.3]
-- artifactory_download_directory: Where to install artifactory. [default: /opt]
-
-Dependencies
-------------
-
-- None known.
 
 Compatibility
 -------------
 
 This role has been tested against the following distributions and Ansible version:
 
+|distribution|ansible 2.4|ansible 2.5|ansible 2.6|ansible 2.7|ansible devel|
+|------------|-----------|-----------|-----------|-----------|-------------|
 |alpine-edge*|yes|yes|yes|yes|yes*|
 |alpine-latest|yes|yes|yes|yes|yes*|
 |archlinux|yes|yes|yes|yes|yes*|
@@ -66,37 +86,26 @@ This role has been tested against the following distributions and Ansible versio
 
 A single star means the build may fail, it's marked as an experimental build.
 
-Example Playbook
-----------------
+Testing
+-------
 
-```
----
-- name: artifactory
-  hosts: all
-  gather_facts: no
-  become: yes
+[Unit tests](https://travis-ci.org/robertdebock/ansible-role-artifactory) are done on every commit and periodically.
 
-  roles:
-    - role: robertdebock.bootstrap
-    - role: robertdebock.java
-    - role: robertdebock.artifactory
-```
+If you find issues, please register them in [GitHub](https://github.com/robertdebock/ansible-role-artifactory/issues)
 
-To install this role:
-- Install this role individually using `ansible-galaxy install robertdebock.artifactory`
+To test this role locally please use [Molecule](https://github.com/metacloud/molecule):
+```
+pip install molecule
+molecule test
+```
+There are many specific scenarios available, please have a look in the `molecule/` directory.
 
-Sample roles/requirements.yml: (install with `ansible-galaxy install -r roles/requirements.yml
-```
----
-- name: robertdebock.bootstrap
-- name: robertdebock.java
-- name: robertdebock.artifactory
-```
 
 License
 -------
 
-Apache License, Version 2.0
+Apache-2.0
+
 
 Author Information
 ------------------

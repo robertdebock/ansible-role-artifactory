@@ -1,4 +1,8 @@
 ---
 # defaults file for artifactory
+
+# The version of Artifactory to install
 artifactory_version: 6.3.3
+
+# The location where Artifactory should install.
 artifactory_download_directory: /opt
