@@ -18,9 +18,9 @@ This example is taken from `molecule/default/playbook.yml`:
   become: true
 
   roles:
-    - role: robertdebock.bootstrap
-    - role: robertdebock.java
-    - role: ansible-role-artifactory
+    - robertdebock.bootstrap
+    - robertdebock.java
+    - robertdebock.artifactory
 
 ```
 
@@ -33,7 +33,7 @@ These variables are set in `defaults/main.yml`:
 # defaults file for artifactory
 
 # The version of Artifactory to install
-artifactory_version: 6.3.3
+artifactory_version: 6.5.2
 
 # The location where Artifactory should install.
 artifactory_download_directory: /opt
@@ -46,11 +46,12 @@ Requirements
 - Access to a repository containing packages, likely on the internet.
 - A recent version of Ansible. (Tests run on the last 3 release of Ansible.)
 
-These roles can be installed to ensure all requirements are met:
+The following roles can be installed to ensure all requirements are met, using `ansible-galaxy install -r requirements.yml`:
 
-- none
+---
+- robertdebock.bootstrap
+- robertdebock.java
 
-To install all requirements at once: `ansible-galaxy install -r requirements.yml`.
 
 Context
 -------
