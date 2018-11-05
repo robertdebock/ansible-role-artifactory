@@ -3,8 +3,7 @@ artifactory
 
 [![Build Status](https://travis-ci.org/robertdebock/ansible-role-artifactory.svg?branch=master)](https://travis-ci.org/robertdebock/ansible-role-artifactory)
 
-Provides artifactory for your system.
-
+The purpose of this role is to install and configure artifactory on your system.
 
 Example Playbook
 ----------------

@@ -1,1 +1,0 @@
-Provides artifactory for your system.
