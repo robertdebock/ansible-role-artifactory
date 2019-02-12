@@ -34,8 +34,10 @@ platforms:
     image: opensuse:leap
   - name: artifactory-opensuse-tumbleweed
     image: opensuse:tumbleweed
-  - name: artifactory-ubuntu-artful
-    image: ubuntu:artful
+  - name: artifactory-ubuntu-latest
+    image: ubuntu:latest
+  - name: artifactory-ubuntu-rolling
+    image: ubuntu:rolling
   - name: artifactory-ubuntu-devel
     image: ubuntu:devel
   - name: artifactory-ubuntu-latest
