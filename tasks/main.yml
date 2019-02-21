@@ -32,9 +32,6 @@
   import_role:
     name: robertdebock.service
 
-- name: flush handlers
-  meta: flush_handlers
-
 - name: start and enable artifactory
   service:
     name: artifactory
