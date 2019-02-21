@@ -4,3 +4,11 @@ artifactory_zip: "https://dl.bintray.com/jfrog/artifactory/jfrog-artifactory-oss
 artifactory_home: "{{ artifactory_download_directory }}/artifactory-oss-{{ artifactory_version }}"
 artifactory_user: artifactory
 artifactory_group: artifactory
+
+# Set the parameters required for the service.
+service_list:
+  - name: artifactory
+    description: Start script for Artifactory
+    start_command: "{{ artifactory_home }}/bin/artifactoryctl start"
+    stop_command: "{{ artifactory_home }}/bin/artifactoryctl stop"
+    type: forking

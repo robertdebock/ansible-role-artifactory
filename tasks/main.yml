@@ -28,22 +28,9 @@
   until: downloadartifactory is succeeded
   retries: 3
 
-- name: register artifactory to sysvinit
-  template:
-    src: artifactory.j2
-    dest: "/etc/init.d/artifactory"
-    mode: 0750
-  when:
-    - ansible_service_mgr == "sysvinit" or ansible_service_mgr == "upstart"
-
-- name: register artifactory to systemd
-  template:
-    src: artifactory.service.j2
-    dest: /etc/systemd/system/artifactory.service
-  when:
-    - ansible_service_mgr == "systemd"
-  notify:
-    - systemctl daemon-reload
+- name: create artifactory service
+  import_role:
+    name: robertdebock.service
 
 - name: flush handlers
   meta: flush_handlers
