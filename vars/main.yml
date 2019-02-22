@@ -9,6 +9,7 @@ artifactory_group: artifactory
 service_list:
   - name: artifactory
     description: Start script for Artifactory
-    start_command: "{{ artifactory_home }}/bin/artifactoryctl start"
-    stop_command: "{{ artifactory_home }}/bin/artifactoryctl stop"
+    start_command: "{{ artifactory_home }}/bin/artifactory.sh start"
+    stop_command: "{{ artifactory_home }}/bin/artifactory.sh stop"
     type: forking
+    status_pattern: artifactory
