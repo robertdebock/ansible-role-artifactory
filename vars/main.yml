@@ -2,6 +2,8 @@
 # vars file for artifactory
 _artifactory_requirements:
   default: []
+  Archlinux:
+    - bash
   Debian:
     - procps
   Fedora:
