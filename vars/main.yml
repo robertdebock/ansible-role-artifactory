@@ -1,5 +1,16 @@
 ---
 # vars file for artifactory
+_artifactory_requirements:
+  default: []
+  Debian:
+    - psproc
+  Fedora:
+    - procps
+  Ubuntu:
+    - psproc
+
+artifactory_requirements: "{{ _artifactory_requirements[ansible_distribution] | default(_artifactory_requirements['default']) }}"
+
 artifactory_zip: "https://dl.bintray.com/jfrog/artifactory/jfrog-artifactory-oss-{{ artifactory_version }}.zip"
 artifactory_home: "{{ artifactory_download_directory }}/artifactory-oss-{{ artifactory_version }}"
 artifactory_user: artifactory

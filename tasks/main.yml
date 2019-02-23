@@ -1,5 +1,13 @@
 ---
 # tasks file for artifactory
+- name: install requirements
+  package:
+    name: "{{ artifactory_requirements }}"
+    state: "{{ artifactory_package_state }}"
+  register: artifactory_install_requirements
+  until: artifactory_install_requirements is succeeded
+  retries: 3
+
 - name: create group for artifactory
   group:
     name: "{{ artifactory_group }}"
