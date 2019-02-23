@@ -3,11 +3,11 @@
 _artifactory_requirements:
   default: []
   Debian:
-    - psproc
+    - procps
   Fedora:
     - procps
   Ubuntu:
-    - psproc
+    - procps
 
 artifactory_requirements: "{{ _artifactory_requirements[ansible_distribution] | default(_artifactory_requirements['default']) }}"
 
