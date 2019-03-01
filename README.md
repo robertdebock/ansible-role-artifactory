@@ -33,6 +33,9 @@ These variables are set in `defaults/main.yml`:
 ---
 # defaults file for artifactory
 
+# To update all packages installed by this roles, set `artifactory_package_state` to `latest`.
+artifactory_package_state: present
+
 # The version of Artifactory to install
 artifactory_version: 6.5.2
 
@@ -89,7 +92,6 @@ This role has been tested against the following distributions and Ansible versio
 |fedora-latest|yes|yes|yes*|
 |fedora-rawhide*|yes|yes|yes*|
 |opensuse-leap|yes|yes|yes*|
-|opensuse-tumbleweed|yes|yes|yes*|
 |ubuntu-devel*|yes|yes|yes*|
 |ubuntu-latest|yes|yes|yes*|
 |ubuntu-rolling|yes|yes|yes*|

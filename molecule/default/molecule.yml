@@ -32,8 +32,6 @@ platforms:
     image: fedora:rawhide
   - name: artifactory-opensuse-leap
     image: opensuse:leap
-  - name: artifactory-opensuse-tumbleweed
-    image: opensuse:tumbleweed
   - name: artifactory-ubuntu-latest
     image: ubuntu:latest
   - name: artifactory-ubuntu-rolling
