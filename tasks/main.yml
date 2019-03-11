@@ -3,7 +3,7 @@
 - name: install requirements
   package:
     name: "{{ artifactory_requirements }}"
-    state: "{{ artifactory_package_state }}"
+    state: present
   register: artifactory_install_requirements
   until: artifactory_install_requirements is succeeded
   retries: 3
