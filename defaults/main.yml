@@ -1,9 +1,11 @@
 ---
 # defaults file for artifactory
 
-
 # The version of Artifactory to install
 artifactory_version: 6.5.2
 
 # The location where Artifactory should install.
 artifactory_download_directory: /opt
+
+# The password to login with for the user `access-admin`.
+artifactory_password: "Sup3rStr0n6."
