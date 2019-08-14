@@ -57,7 +57,7 @@
     status_code: 201
     body_format: json
   when:
-    - "{{ artifactory_version is version('6.8.0', '>=') }}"
+    - artifactory_version is version('6.8.0', '>=')
 
 - name: create artifactory service
   import_role:
