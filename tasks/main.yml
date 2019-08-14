@@ -44,7 +44,7 @@
   notify:
     - restart artifactory
   when:
-    - "{{ artifactory_version is version('6.8.0', '<') }}"
+    - artifactory_version is version('6.8.0', '<')
 
 - name: set password for artifactory for version 6.8.0 and above
   uri:
