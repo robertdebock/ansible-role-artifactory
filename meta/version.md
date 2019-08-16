@@ -1,1 +1,0 @@
-This role [refers to a version](https://github.com/robertdebock/ansible-role-artifactory/blob/master/defaults/main.yml) of Artifactory, which can be found [here](https://dl.bintray.com/jfrog/artifactory/).
