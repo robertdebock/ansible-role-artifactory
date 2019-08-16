@@ -102,6 +102,11 @@ This role has been tested against the following distributions and Ansible versio
 
 A single star means the build may fail, it's marked as an experimental build.
 
+Upstream version(s)
+-------------------
+
+This role [refers to a version](https://github.com/robertdebock/ansible-role-artifactory/blob/master/defaults/main.yml) of Artifactory, which can be found [here](https://dl.bintray.com/jfrog/artifactory/).
+
 Testing
 -------
 
