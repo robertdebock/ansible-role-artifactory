@@ -34,6 +34,7 @@ The machine you are running this on, may need to be prepared.
 
   roles:
     - robertdebock.bootstrap
+    - robertdebock.core_dependencies
     - robertdebock.java
 ```
 
@@ -68,6 +69,7 @@ The following roles can be installed to ensure all requirements are met, using `
 ```yaml
 ---
 - robertdebock.bootstrap
+- robertdebock.core_dependencies
 - robertdebock.service
 - robertdebock.java
 

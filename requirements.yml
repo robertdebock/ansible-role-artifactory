@@ -1,4 +1,5 @@
 ---
 - robertdebock.bootstrap
+- robertdebock.core_dependencies
 - robertdebock.service
 - robertdebock.java
