@@ -1,0 +1,4 @@
+---
+exceptions:
+  - variation: Alpine
+    reason: Artifactory start/stop scripts don't properly work.
