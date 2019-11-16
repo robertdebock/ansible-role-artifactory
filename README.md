@@ -88,7 +88,6 @@ This role has been tested on these [container images](https://hub.docker.com/):
 
 |container|tag|allow_failures|
 |---------|---|--------------|
-|amazonlinux|1|no|
 |amazonlinux|latest|no|
 |debian|unstable|yes|
 |debian|latest|no|
@@ -113,6 +112,10 @@ Some variarations of the build matrix do not work. These are the variations and 
 | variation                 | reason                 |
 |---------------------------|------------------------|
 | Alpine | Artifactory start/stop scripts don't properly work. |
+| amazonlinux:1 | Shutting down artifactory: /usr/bin/java
+finding
+Using the default catalina management port (8015) to test shutdown
+Artifactory Tomcat already stopped |
 
 Included version(s)
 -------------------
