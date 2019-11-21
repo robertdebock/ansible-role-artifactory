@@ -35,7 +35,6 @@ galaxy_info:
   galaxy_tags:
     - artifactory
     - centos
-    - debian
     - el
     - fedora
     - opensuse
