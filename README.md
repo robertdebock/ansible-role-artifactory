@@ -47,7 +47,7 @@ These variables are set in `defaults/main.yml`:
 # defaults file for artifactory
 
 # The version of Artifactory to install
-artifactory_version: 6.5.2
+artifactory_version: 6.16.0
 
 # The location where Artifactory should install.
 artifactory_download_directory: /opt
