@@ -6,3 +6,6 @@ artifactory_version: 6.16.0
 
 # The location where Artifactory should install.
 artifactory_download_directory: /opt
+
+# The location where Artifactory should store data.
+artifactory_file_store_dir: /data

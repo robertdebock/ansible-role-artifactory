@@ -18,7 +18,10 @@ This example is taken from `molecule/resources/playbook.yml` and is tested on ea
   gather_facts: yes
 
   roles:
-    - robertdebock.artifactory
+    - role: robertdebock.artifactory
+      artifactory_version: 6.13.1
+    - role: robertdebock.artifactory
+      artifactory_version: 6.16.0
 ```
 
 The machine you are running this on, may need to be prepared, I use this playbook to ensure everything is in place to let the role work.
@@ -51,6 +54,9 @@ artifactory_version: 6.16.0
 
 # The location where Artifactory should install.
 artifactory_download_directory: /opt
+
+# The location where Artifactory should store data.
+artifactory_file_store_dir: /data
 ```
 
 Requirements

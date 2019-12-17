@@ -35,6 +35,20 @@
   register: downloadartifactory
   until: downloadartifactory is succeeded
   retries: 3
+  notify:
+    - restart artifactory
+
+- name: ensure artifactory_file_store_dir exists
+  file:
+    path: artifactory_file_store_dir
+    state: directory
+
+- name: configure artifactory
+  template:
+    src: binarystore.xml.j2
+    dest: "{{ artifactory_download_directory }}/artifactory-oss-{{ artifactory_version }}/etc/binarystore.xml"
+  notify:
+    - restart artifactory
 
 - name: create artifactory service
   import_role:
