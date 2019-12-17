@@ -36,29 +36,6 @@
   until: downloadartifactory is succeeded
   retries: 3
 
-- name: set password for artifactory for version below 6.8.0
-  template:
-    src: bootstrap.creds.j2
-    dest: "{{ artifactory_download_directory }}/artifactory-oss-{{ artifactory_version }}/etc/bootstrap.creds"
-    mode: 0600
-  notify:
-    - restart artifactory
-  when:
-    - artifactory_version is version('6.8.0', '<')
-
-- name: set password for artifactory for version 6.8.0 and above
-  uri:
-    url: "https://localhost:8081/access/api/v1/users/admin"
-    user: access-admin
-    password: password
-    method: PATCH
-    body:
-      password: "{{ artifactory_password }}"
-    status_code: 201
-    body_format: json
-  when:
-    - artifactory_version is version('6.8.0', '>=')
-
 - name: create artifactory service
   import_role:
     name: robertdebock.service
