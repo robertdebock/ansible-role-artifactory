@@ -19,9 +19,6 @@ This example is taken from `molecule/resources/playbook.yml` and is tested on ea
 
   roles:
     - role: robertdebock.artifactory
-      artifactory_version: 6.13.1
-    - role: robertdebock.artifactory
-      artifactory_version: 6.16.0
 ```
 
 The machine you are running this on, may need to be prepared, I use this playbook to ensure everything is in place to let the role work.
