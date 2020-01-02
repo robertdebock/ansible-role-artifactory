@@ -40,7 +40,7 @@
 
 - name: ensure artifactory_file_store_dir exists
   file:
-    path: artifactory_file_store_dir
+    path: "{{ artifactory_file_store_dir }}"
     state: directory
 
 - name: configure artifactory
