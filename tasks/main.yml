@@ -46,7 +46,7 @@
 - name: configure artifactory
   template:
     src: binarystore.xml.j2
-    dest: "{{ artifactory_download_directory }}/artifactory-oss-{{ artifactory_version }}/etc/binarystore.xml"
+    dest: "{{ artifactory_home }}/etc/binarystore.xml"
   notify:
     - restart artifactory
 

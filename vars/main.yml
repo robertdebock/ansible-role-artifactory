@@ -11,8 +11,8 @@ _artifactory_requirements:
 
 artifactory_requirements: "{{ _artifactory_requirements[ansible_os_family] | default(_artifactory_requirements['default']) }}"
 
-artifactory_zip: "https://dl.bintray.com/jfrog/artifactory/jfrog-artifactory-oss-{{ artifactory_version }}.zip"
-artifactory_home: "{{ artifactory_download_directory }}/artifactory-oss-{{ artifactory_version }}"
+artifactory_zip: "https://dl.bintray.com/jfrog/artifactory/jfrog-artifactory-{{ artifactory_flavour }}-{{ artifactory_version }}.zip"
+artifactory_home: "{{ artifactory_download_directory }}/artifactory-{{ artifactory_flavour }}-{{ artifactory_version }}"
 
 artifactory_user: artifactory
 artifactory_group: artifactory

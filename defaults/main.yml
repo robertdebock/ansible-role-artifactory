@@ -9,3 +9,8 @@ artifactory_download_directory: /opt
 
 # The location where Artifactory should store data.
 artifactory_file_store_dir: /data
+
+# Pick the Artifactory flavour to install, can be also cpp-ce, jcr, pro.
+# note that for "pro" version, the artifactory_zip URL would need to be overridden to e.g.:
+# https://dl.bintray.com/jfrog/artifactory-pro/org/artifactory/pro/jfrog-artifactory-pro/{{ artifactory_version }}/jfrog-artifactory-pro-{{ artifactory_version }}.zip
+artifactory_flavour: oss
