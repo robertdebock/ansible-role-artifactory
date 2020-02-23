@@ -25,3 +25,5 @@ service_list:
     stop_command: "{{ artifactory_home }}/bin/artifactory.sh stop"
     type: forking
     status_pattern: artifactory
+    user_name: "{{ artifactory_user }}"
+    group_name: "{{ artifactory_group }}"
