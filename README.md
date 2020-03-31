@@ -5,7 +5,7 @@ Install and configure artifactory on your system.
 
 |Travis|GitHub|Quality|Downloads|
 |------|------|-------|---------|
-|[![travis](https://travis-ci.org/robertdebock/ansible-role-artifactory.svg?branch=master)](https://travis-ci.org/robertdebock/ansible-role-artifactory)|[![github](https://github.com/robertdebock/ansible-role-artifactory/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-artifactory/actions)|![quality](https://img.shields.io/ansible/quality/29550)|![downloads](https://img.shields.io/ansible/role/d/29550)|
+|[![travis](https://travis-ci.com/robertdebock/ansible-role-artifactory.svg?branch=master)](https://travis-ci.com/robertdebock/ansible-role-artifactory)|[![github](https://github.com/robertdebock/ansible-role-artifactory/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-artifactory/actions)|[![quality](https://img.shields.io/ansible/quality/29550)](https://galaxy.ansible.com/robertdebock/artifactory)|[![downloads](https://img.shields.io/ansible/role/d/29550)](https://galaxy.ansible.com/robertdebock/artifactory)|
 
 Example Playbook
 ----------------
@@ -143,7 +143,7 @@ This version reference means a role may get outdated. Monthly tests occur to see
 Testing
 -------
 
-[Unit tests](https://travis-ci.org/robertdebock/ansible-role-artifactory) are done on every commit, pull request, release and periodically.
+[Unit tests](https://travis-ci.com/robertdebock/ansible-role-artifactory) are done on every commit, pull request, release and periodically.
 
 If you find issues, please register them in [GitHub](https://github.com/robertdebock/ansible-role-artifactory/issues)
 
