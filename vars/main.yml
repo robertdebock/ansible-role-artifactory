@@ -8,6 +8,7 @@ _artifactory_requirements:
   RedHat:
     - procps
     - net-tools
+    - unzip
 
 artifactory_requirements: "{{ _artifactory_requirements[ansible_os_family] | default(_artifactory_requirements['default']) }}"
 
