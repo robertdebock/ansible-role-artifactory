@@ -32,8 +32,8 @@
     owner: "{{ artifactory_user }}"
     group: "{{ artifactory_group }}"
     creates: "{{ artifactory_home }}"
-  register: downloadartifactory
-  until: downloadartifactory is succeeded
+  register: artifactory_download_artifactory
+  until: artifactory_download_artifactory is succeeded
   retries: 3
   notify:
     - restart artifactory
