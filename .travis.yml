@@ -14,13 +14,13 @@ env:
   global:
     namespace="robertdebock"
   matrix:
-    - image="debian" tag="latest"
-    - image="debian" tag="bullseye"
+    - image="amazonlinux" tag="1"
     - image="centos" tag="7"
     - image="centos" tag="latest"
+    - image="debian" tag="latest"
+    - image="debian" tag="bullseye"
     - image="fedora" tag="31"
     - image="fedora" tag="latest"
-    - image="fedora" tag="rawhide"
     - image="opensuse" tag="latest"
     - image="ubuntu" tag="latest"
     - image="ubuntu" tag="bionic"
@@ -39,5 +39,5 @@ script:
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
   slack:
-    secure: "kxotmvIc5AXsw6cMR5UDP4a0s6NOkLEdf+pBohzTcwAEleqsIG1wNwv6vHtw1VMUkD8lAKv5UTGS8ail5jFb5/oIXjUV6DbHlkcqn9n4HAf/Xxvc4/XkPfSu1LQLX1F/pfMt21+mBfo8Yjbnl1oa40Nr6I6/VxpAslUmTubJD4cupz28svdNUS4M3vNA14+r9CNpjfsU6uxNV3ewvbrW8JUd94qvL82wFPQ1nhht0bZbhinO/tjir+WfkI7FPDOCl1xkW5fdWB4QIQe6uJ5MiFJPCsR3eHhH6AHl23f6the3a75Sj7PPXokPyioqjdK6eNX0bfj3qOLWhn7LDf3AVb1vQ7qo00b+CYsrs19xULsF1JuF0NPWH9JnLzl0UXKFweQEN8YiVGREhNUCN8RQcsAQODsJcUwP2WBN7yFV1pYGoNhsg7c299i6TG31r55MHD8SJ/XavFEdD3quZ42zK4B7t3GylTkds+l+crmqQ0z/AbPVxUOHUJC3ylkKBYpv1W5WdR90r08mNWCgxQPPb77Wxdud7n6TADmcMJG8vZj9MMMv8/FspC1RFN623AJGe3OVYUkt3P8pFt5LKS0SOhY5hdX2/xRbVAr+Qy7PRdXJJv8+M/r1dqgGIURAN3PqJj/aUw+kY514TXgUHCFAz/+SsNNY4Pf58kj0Ww9k2wA="
+    secure: NBMS5E8ktXckUmL4L8GdRy/phTV5v7RgW1+n2DaxuRl3pUGQIl29nrs1LSoHJBd/nJOpfc+9DaMmu9pg1/0uEyRTOXfP9N3NIdWIPCMEz7VvMbaZbXaJCWw9GGPRJU0sxANGdDSxWvgag5l1nALXKurdomh+H0jNQ6w2CSt9diw4PtgvPnUDeFjBtuPRKl1DqRlqAdaDhT0oCY+/Qv0+xlDCmj+RsMwiLzECZgd+bH7HdBTI0dJSrhbFmiwzX2kiqRFuMlVrvZljRWShlfRAh+Pc3vIo1sbzYOD7i7YVqw7jkU8CN+hR16fXFE03C9Lu46Kd2IwJ1jzw53m+RTFcQ3LH0hcTnZkUPEzPhOImgxrRPERpBCo6P95WdnGMyKAqYFtLrqtt9E+xlrrBpWy6PvSCR0C2PrLK0inTBj73a6aQ89ho3fpKeqxIvmH9z8n5KQJqID2jYOxi0ZngmWI+G1xGbmORA4m985bxlApocvByxev4JH+Gu5KxzKkJZPLxCet6KS9jStEsQsQRbgSufdUCSOFDUqJ3xqJJbWI3vu42tjLkY8hg8dUzFHOSpDABcLLmWknunqU8l1ZQ6vVw2cOmYbsrR8hz+os132nFYGErsw+g5xg+ha12As8bdLaLSf92M9+iCEx9GlauSA6R0AFT92xSMiVqo/DTWrLb2uw=
   email: false
