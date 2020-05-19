@@ -20,7 +20,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
       - name: molecule
-        uses: robertdebock/molecule-action@2.1.0
+        uses: robertdebock/molecule-action@2.2.0
         with:
           entrypoint: /usr/local/bin/molecule
           args: lint
@@ -32,20 +32,20 @@ jobs:
       fail-fast: false
       matrix:
         config:
-          - image: "debian"
-            tag: "latest"
-          - image: "debian"
-            tag: "bullseye"
+          - image: "amazonlinux"
+            tag: "1"
           - image: "centos"
             tag: "7"
           - image: "centos"
             tag: "latest"
+          - image: "debian"
+            tag: "latest"
+          - image: "debian"
+            tag: "bullseye"
           - image: "fedora"
             tag: "31"
           - image: "fedora"
             tag: "latest"
-          - image: "fedora"
-            tag: "rawhide"
           - image: "opensuse"
             tag: "latest"
           - image: "ubuntu"
@@ -64,7 +64,7 @@ jobs:
       - name: parse apparmor for mysql
         run: sudo apparmor_parser -R /etc/apparmor.d/usr.sbin.mysqld
       - name: molecule
-        uses: robertdebock/molecule-action@2.1.0
+        uses: robertdebock/molecule-action@2.2.0
         with:
           image: ${{ matrix.config.image }}
           tag: ${{ matrix.config.tag }}
