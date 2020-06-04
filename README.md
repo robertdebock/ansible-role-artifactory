@@ -2,9 +2,9 @@
 
 Install and configure artifactory on your system.
 
-|Travis|GitHub|Quality|Downloads|
-|------|------|-------|---------|
-|[![travis](https://travis-ci.com/robertdebock/ansible-role-artifactory.svg?branch=master)](https://travis-ci.com/robertdebock/ansible-role-artifactory)|[![github](https://github.com/robertdebock/ansible-role-artifactory/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-artifactory/actions)|[![quality](https://img.shields.io/ansible/quality/29550)](https://galaxy.ansible.com/robertdebock/artifactory)|[![downloads](https://img.shields.io/ansible/role/d/29550)](https://galaxy.ansible.com/robertdebock/artifactory)|
+|Travis|GitHub|Quality|Downloads|Version|
+|------|------|-------|---------|-------|
+|[![travis](https://travis-ci.com/robertdebock/ansible-role-artifactory.svg?branch=master)](https://travis-ci.com/robertdebock/ansible-role-artifactory)|[![github](https://github.com/robertdebock/ansible-role-artifactory/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-artifactory/actions)|[![quality](https://img.shields.io/ansible/quality/29550)](https://galaxy.ansible.com/robertdebock/artifactory)|[![downloads](https://img.shields.io/ansible/role/d/29550)](https://galaxy.ansible.com/robertdebock/artifactory)|[![Version](https://img.shields.io/github/release/robertdebock/ansible-role-artifactory.svg)](https://github.com/robertdebock/ansible-role-artifactory/releases/)|
 
 ## [Example Playbook](#example-playbook)
 
@@ -82,8 +82,8 @@ The following roles can be installed to ensure all requirements are met, using `
 ---
 - robertdebock.bootstrap
 - robertdebock.core_dependencies
-- robertdebock.service
 - robertdebock.java
+- robertdebock.service
 
 ```
 
