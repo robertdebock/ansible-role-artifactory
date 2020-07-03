@@ -23,4 +23,3 @@
       - artifactory_flavour is defined
       - artifactory_flavour | length > 0
       - artifactory_flavour in ["oss", "cpp-ce", "jcr", "pro"]
-
