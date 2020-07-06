@@ -1,5 +1,6 @@
 ---
 # vars file for artifactory
+
 _artifactory_requirements:
   default: []
   Debian:
