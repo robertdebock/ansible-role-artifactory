@@ -7,9 +7,6 @@
   package:
     name: "{{ artifactory_requirements }}"
     state: present
-  register: artifactory_install_requirements
-  until: artifactory_install_requirements is succeeded
-  retries: 3
 
 - name: create group for artifactory
   group:
@@ -35,9 +32,6 @@
     owner: "{{ artifactory_user }}"
     group: "{{ artifactory_group }}"
     creates: "{{ artifactory_home }}"
-  register: artifactory_download_artifactory
-  until: artifactory_download_artifactory is succeeded
-  retries: 3
   notify:
     - restart artifactory
 
