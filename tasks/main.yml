@@ -23,6 +23,7 @@
   file:
     path: "{{ artifactory_download_directory }}"
     state: directory
+    mode: "0755"
 
 - name: download artifactory
   unarchive:
@@ -32,6 +33,7 @@
     owner: "{{ artifactory_user }}"
     group: "{{ artifactory_group }}"
     creates: "{{ artifactory_home }}"
+    mode: "0755"
   notify:
     - restart artifactory
 
@@ -41,11 +43,13 @@
     state: directory
     owner: "{{ artifactory_user }}"
     group: "{{ artifactory_group }}"
+    mode: "0755"
 
 - name: configure artifactory
   template:
     src: binarystore.xml.j2
     dest: "{{ artifactory_home }}/etc/binarystore.xml"
+    mode: "0644"
   notify:
     - restart artifactory
 
