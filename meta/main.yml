@@ -34,8 +34,6 @@ galaxy_info:
 
   galaxy_tags:
     - artifactory
-    - centos
-    - redhat
     - server
     - system
 
