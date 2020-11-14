@@ -28,3 +28,4 @@ service_list:
     status_pattern: artifactory
     user_name: "{{ artifactory_user }}"
     group_name: "{{ artifactory_group }}"
+    pidfile: "{{ artifactory_home }}/run/artifactory.pid"
