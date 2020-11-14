@@ -44,7 +44,7 @@ These variables are set in `defaults/main.yml`:
 # defaults file for artifactory
 
 # The version of Artifactory to install
-artifactory_version: 6.16.0
+artifactory_version: 7.10.6
 
 # The location where Artifactory should install.
 artifactory_download_directory: /opt
@@ -85,7 +85,6 @@ This role has been tested on these [container images](https://hub.docker.com/u/r
 
 |container|tags|
 |---------|----|
-|amazon|all|
 |el|7, 8|
 |debian|buster, bullseye|
 |fedora|all|
@@ -105,10 +104,7 @@ Some variarations of the build matrix do not work. These are the variations and 
 | variation                 | reason                 |
 |---------------------------|------------------------|
 | Alpine | Artifactory start/stop scripts don't properly work. |
-| amazonlinux:1 | Shutting down artifactory: /usr/bin/java
-finding
-Using the default catalina management port (8015) to test shutdown
-Artifactory Tomcat already stopped |
+| amazonlinux | Timeout when waiting for 127.0.0.1:8040 |
 
 ## [Included version(s)](#included-versions)
 
