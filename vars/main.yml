@@ -1,31 +1,4 @@
 ---
 # vars file for artifactory
 
-_artifactory_requirements:
-  default: []
-  Debian:
-    - procps
-    - net-tools
-  RedHat:
-    - procps
-    - net-tools
-
-artifactory_requirements: "{{ _artifactory_requirements[ansible_os_family] | default(_artifactory_requirements['default']) }}"
-
-artifactory_zip: "https://dl.bintray.com/jfrog/artifactory/jfrog-artifactory-{{ artifactory_flavour }}-{{ artifactory_version }}.zip"
-artifactory_home: "{{ artifactory_download_directory }}/artifactory-{{ artifactory_flavour }}-{{ artifactory_version }}"
-
-artifactory_user: artifactory
-artifactory_group: artifactory
-
-# Set the parameters required for the service.
-service_list:
-  - name: artifactory
-    description: Start script for Artifactory
-    start_command: "{{ artifactory_home }}/bin/artifactory.sh start"
-    stop_command: "{{ artifactory_home }}/bin/artifactory.sh stop"
-    type: forking
-    status_pattern: artifactory
-    user_name: "{{ artifactory_user }}"
-    group_name: "{{ artifactory_group }}"
-    pidfile: "{{ artifactory_home }}/run/artifactory.pid"
+artifactory_home: /opt/jfrog/artifactory/app/misc/etc/artifactory

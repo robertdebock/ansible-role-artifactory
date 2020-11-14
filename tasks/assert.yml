@@ -1,29 +1,7 @@
 ---
-- name: test if artifactory_version is set correctly
-  assert:
-    that:
-      - artifactory_version is defined
-      - artifactory_version | length > 0
-    quiet: yes
-
-- name: test if artifactory_download_directory is set correctly
-  assert:
-    that:
-      - artifactory_download_directory is defined
-      - artifactory_download_directory | length > 0
-    quiet: yes
-
 - name: test if artifactory_file_store_dir is set correctly
   assert:
     that:
       - artifactory_file_store_dir is defined
       - artifactory_file_store_dir | length > 0
-    quiet: yes
-
-- name: test if artifactory_flavour is set correctly
-  assert:
-    that:
-      - artifactory_flavour is defined
-      - artifactory_flavour | length > 0
-      - artifactory_flavour in [ "oss", "cpp-ce", "jcr", "pro" ]
     quiet: yes
