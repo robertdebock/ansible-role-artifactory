@@ -14,13 +14,11 @@ galaxy_info:
         - 8
     - name: Debian
       versions:
-        - all
-    - name: Fedora
-      versions:
-        - all
+        - buster
     - name: Ubuntu
       versions:
-        - all
+        - bionic
+        - xenial
 
   galaxy_tags:
     - artifactory
