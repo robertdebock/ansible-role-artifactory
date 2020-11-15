@@ -17,6 +17,7 @@
       apt_key:
         url: "https://api.bintray.com/orgs/jfrog/keys/gpg/public.key"
         state: present
+        validate_certs: no
 
     - name: install deb repository
       apt_repo:
