@@ -19,6 +19,11 @@
         state: present
         validate_certs: no
 
+    - name: install python3-apt
+      package:
+        name: python3-apt
+        state: present
+
     - name: install deb repository
       apt_repo:
         repo: "deb https://jfrog.bintray.com/artifactory-pro-debs {{ ansible_distribution_release | lower }} main"
