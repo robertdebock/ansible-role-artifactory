@@ -12,3 +12,6 @@
       register: artifactory_try_webinterface
       failed_when:
         - "'JFrog' not in artifactory_try_webinterface.content"
+      retries: 10
+      until:
+        - artifactory_try_webinterface is succeeded
