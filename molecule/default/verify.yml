@@ -5,19 +5,10 @@
   gather_facts: no
 
   tasks:
-    - name: check port
-      wait_for:
-        port: "{{ item }}"
-      loop:
-        - 8015
-        - 8040
-        - 8045
-        - 8081
-
     - name: try webinterface
       uri:
-        url: "http://localhost:8081/artifactory/webapp/"
+        url: "http://localhost:8082/ui/"
         return_content: yes
       register: artifactory_try_webinterface
       failed_when:
-        - "'Artifactory' not in artifactory_try_webinterface.content"
+        - "'JFrog' not in artifactory_try_webinterface.content"
