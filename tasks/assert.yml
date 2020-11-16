@@ -3,5 +3,4 @@
   assert:
     that:
       - artifactory_file_store_dir is defined
-      - artifactory_file_store_dir | length > 0
     quiet: yes
