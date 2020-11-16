@@ -31,7 +31,6 @@ The machine needs to be prepared in CI this is done using `molecule/resources/pr
   roles:
     - role: robertdebock.bootstrap
     - role: robertdebock.core_dependencies
-    - role: robertdebock.java
 ```
 
 Also see a [full explanation and example](https://robertdebock.nl/how-to-use-these-roles.html) on how to use these roles.
@@ -43,19 +42,8 @@ These variables are set in `defaults/main.yml`:
 ---
 # defaults file for artifactory
 
-# The version of Artifactory to install
-artifactory_version: 7.10.6
-
-# The location where Artifactory should install.
-artifactory_download_directory: /opt
-
 # The location where Artifactory should store data.
 artifactory_file_store_dir: /data
-
-# Pick the Artifactory flavour to install, can be also cpp-ce, jcr, pro.
-# note that for "pro" version, the artifactory_zip URL would need to be overridden to e.g.:
-# https://dl.bintray.com/jfrog/artifactory-pro/org/artifactory/pro/jfrog-artifactory-pro/{{ artifactory_version }}/jfrog-artifactory-pro-{{ artifactory_version }}.zip
-artifactory_flavour: oss
 ```
 
 ## [Requirements](#requirements)
@@ -69,8 +57,6 @@ artifactory_flavour: oss
 |-------------|--------|--------|
 | [robertdebock.bootstrap](https://galaxy.ansible.com/robertdebock/bootstrap) | [![Build Status Travis](https://travis-ci.com/robertdebock/ansible-role-bootstrap.svg?branch=master)](https://travis-ci.com/robertdebock/ansible-role-bootstrap) | [![Build Status GitHub](https://github.com/robertdebock/ansible-role-bootstrap/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-bootstrap/actions) |
 | [robertdebock.core_dependencies](https://galaxy.ansible.com/robertdebock/core_dependencies) | [![Build Status Travis](https://travis-ci.com/robertdebock/ansible-role-core_dependencies.svg?branch=master)](https://travis-ci.com/robertdebock/ansible-role-core_dependencies) | [![Build Status GitHub](https://github.com/robertdebock/ansible-role-core_dependencies/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-core_dependencies/actions) |
-| [robertdebock.java](https://galaxy.ansible.com/robertdebock/java) | [![Build Status Travis](https://travis-ci.com/robertdebock/ansible-role-java.svg?branch=master)](https://travis-ci.com/robertdebock/ansible-role-java) | [![Build Status GitHub](https://github.com/robertdebock/ansible-role-java/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-java/actions) |
-| [robertdebock.service](https://galaxy.ansible.com/robertdebock/service) | [![Build Status Travis](https://travis-ci.com/robertdebock/ansible-role-service.svg?branch=master)](https://travis-ci.com/robertdebock/ansible-role-service) | [![Build Status GitHub](https://github.com/robertdebock/ansible-role-service/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-service/actions) |
 
 ## [Context](#context)
 
@@ -86,10 +72,7 @@ This role has been tested on these [container images](https://hub.docker.com/u/r
 |container|tags|
 |---------|----|
 |el|7, 8|
-|debian|buster, bullseye|
-|fedora|all|
-|opensuse|all|
-|ubuntu|focal, bionic, xenial|
+|ubuntu|bionic, xenial|
 
 The minimum version of Ansible required is 2.9, tests have been done to:
 
