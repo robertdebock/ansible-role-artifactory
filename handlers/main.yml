@@ -5,3 +5,5 @@
   service:
     name: artifactory
     state: restarted
+  when:
+    - not ansible_check_mode | bool
