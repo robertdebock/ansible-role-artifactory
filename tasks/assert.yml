@@ -1,4 +1,5 @@
 ---
+
 - name: test if artifactory_file_store_dir is set correctly
   assert:
     that:
