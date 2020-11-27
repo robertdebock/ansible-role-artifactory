@@ -4,4 +4,5 @@
   assert:
     that:
       - artifactory_file_store_dir is defined
+      - artifactory_file_store_dir is string
     quiet: yes
