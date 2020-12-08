@@ -2,9 +2,9 @@
 
 Install and configure artifactory on your system.
 
-|Travis|GitHub|Quality|Downloads|Version|
-|------|------|-------|---------|-------|
-|[![travis](https://travis-ci.com/robertdebock/ansible-role-artifactory.svg?branch=master)](https://travis-ci.com/robertdebock/ansible-role-artifactory)|[![github](https://github.com/robertdebock/ansible-role-artifactory/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-artifactory/actions)|[![quality](https://img.shields.io/ansible/quality/29550)](https://galaxy.ansible.com/robertdebock/artifactory)|[![downloads](https://img.shields.io/ansible/role/d/29550)](https://galaxy.ansible.com/robertdebock/artifactory)|[![Version](https://img.shields.io/github/release/robertdebock/ansible-role-artifactory.svg)](https://github.com/robertdebock/ansible-role-artifactory/releases/)|
+|Travis|GitHub|GitLab|Quality|Downloads|Version|
+|------|------|------|-------|---------|-------|
+|[![travis](https://travis-ci.com/robertdebock/ansible-role-artifactory.svg?branch=master)](https://travis-ci.com/robertdebock/ansible-role-artifactory)|[![github](https://github.com/robertdebock/ansible-role-artifactory/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-artifactory/actions)|[![gitlab](https://gitlab.com/robertdebock/ansible-role-artifactory/badges/master/pipeline.svg)](https://gitlab.com/robertdebock/ansible-role-artifactory)|[![quality](https://img.shields.io/ansible/quality/29550)](https://galaxy.ansible.com/robertdebock/artifactory)|[![downloads](https://img.shields.io/ansible/role/d/29550)](https://galaxy.ansible.com/robertdebock/artifactory)|[![Version](https://img.shields.io/github/release/robertdebock/ansible-role-artifactory.svg)](https://github.com/robertdebock/ansible-role-artifactory/releases/)|
 
 ## [Example Playbook](#example-playbook)
 
