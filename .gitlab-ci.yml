@@ -22,8 +22,6 @@ molecule:
         tag: "latest"
       - image: "ubuntu"
         tag: "bionic"
-      - image: "ubuntu"
-        tag: "xenial"
 
 galaxy:
   script:
