@@ -37,12 +37,16 @@
     path: "{{ artifactory_file_store_dir }}"
     state: directory
     mode: "0755"
+    owner: artifactory
+    group: artifactory
 
 - name: configure artifactory
   template:
     src: binarystore.xml.j2
     dest: "{{ artifactory_home }}/binarystore.xml"
     mode: "0644"
+    owner: artifactory
+    group: artifactory
   notify:
     - restart artifactory
 
