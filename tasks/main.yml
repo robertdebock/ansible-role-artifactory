@@ -50,6 +50,14 @@
   notify:
     - restart artifactory
 
+- name: set ownership for artifactory_logs
+  file:
+    path: "{{ artifactory_logs }}"
+    state: directory
+    mode: "0755"
+    owner: artifactory
+    group: artifactory
+
 - name: start and enable artifactory
   service:
     name: artifactory
