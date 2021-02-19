@@ -106,8 +106,6 @@ Apache-2.0
 
 I'd like to thank everybody that made contributions to this repository. It motivates me, improves the code and is just fun to collaborate.
 
-- [mrtwnklr](https://github.com/mrtwnklr)
-- [weakcamel](https://github.com/weakcamel)
 
 ## [Author Information](#author-information)
 
