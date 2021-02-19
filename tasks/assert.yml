@@ -1,7 +1,7 @@
 ---
 
 - name: test if artifactory_file_store_dir is set correctly
-  assert:
+  ansible.builtin.assert:
     that:
       - artifactory_file_store_dir is defined
       - artifactory_file_store_dir is string

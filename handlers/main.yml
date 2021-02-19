@@ -2,7 +2,7 @@
 # handlers file for artifactory
 
 - name: restart artifactory
-  service:
+  ansible.builtin.service:
     name: artifactory
     state: restarted
   when:

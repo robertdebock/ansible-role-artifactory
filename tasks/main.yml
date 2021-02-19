@@ -7,7 +7,7 @@
   delegate_to: localhost
 
 - name: install yum repository
-  get_url:
+  ansible.builtin.get_url:
     url: "https://bintray.com/jfrog/artifactory-rpms/rpm"
     dest: /etc/yum.repos.d/bintray-jfrog-artifactory-oss-rpms.repo
   when:
@@ -29,12 +29,12 @@
     - ansible_pkg_mgr in [ "apt" ]
 
 - name: install package
-  package:
+  ansible.builtin.package:
     name: jfrog-artifactory-oss
     state: present
 
 - name: ensure artifactory_file_store_dir exists
-  file:
+  ansible.builtin.file:
     path: "{{ artifactory_file_store_dir }}"
     state: directory
     mode: "0755"
@@ -42,7 +42,7 @@
     group: artifactory
 
 - name: configure artifactory
-  template:
+  ansible.builtin.template:
     src: binarystore.xml.j2
     dest: "{{ artifactory_home }}/binarystore.xml"
     mode: "0644"
@@ -52,7 +52,7 @@
     - restart artifactory
 
 - name: set ownership for artifactory_logs
-  file:
+  ansible.builtin.file:
     path: "{{ artifactory_logs }}"
     state: directory
     mode: "0755"
@@ -60,7 +60,7 @@
     group: artifactory
 
 - name: start and enable artifactory
-  service:
+  ansible.builtin.service:
     name: artifactory
     state: started
     enabled: yes
