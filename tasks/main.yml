@@ -16,13 +16,13 @@
 - name: configure apt repository
   block:
     - name: trust gpg key
-      apt_key:
+      ansible.builtin.apt_key:
         url: "https://api.bintray.com/orgs/jfrog/keys/gpg/public.key"
         state: present
         validate_certs: no
 
     - name: install deb repository
-      apt_repository:
+      ansible.builtin.apt_repository:
         repo: "deb https://jfrog.bintray.com/artifactory-debs {{ ansible_distribution_release | lower }} main"
         state: present
   when:
