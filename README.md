@@ -85,15 +85,6 @@ The minimum version of Ansible required is 2.10, tests have been done to:
 - The current version.
 - The development version.
 
-## [Exceptions](#exceptions)
-
-Some roles can't run on a specific distribution or version. Here are some exceptions.
-
-| variation                 | reason                 |
-|---------------------------|------------------------|
-| Alpine | Artifactory start/stop scripts don't properly work. |
-| amazonlinux | Timeout when waiting for 127.0.0.1:8040 |
-
 ## [Included version(s)](#included-versions)
 
 This role [refers to a version](https://github.com/robertdebock/ansible-role-artifactory/blob/master/defaults/main.yml) released by JFrog. Check the released version(s) here:
