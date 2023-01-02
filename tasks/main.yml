@@ -10,6 +10,7 @@
   ansible.builtin.get_url:
     url: "https://bintray.com/jfrog/artifactory-rpms/rpm"
     dest: /etc/yum.repos.d/bintray-jfrog-artifactory-rpms.repo
+    mode: "0640"
   when:
     - ansible_pkg_mgr in [ "dnf", "yum" ]
 
