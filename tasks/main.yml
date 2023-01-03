@@ -24,7 +24,7 @@
 
     - name: Install deb repository
       ansible.builtin.apt_repository:
-        repo: "deb https://releases.jfrog.io/artifactory/artifactory-pro-debs {{ anisble_distribution_release | lower }} main"
+        repo: "deb https://releases.jfrog.io/artifactory/artifactory-pro-debs {{ ansible_distribution_release | lower }} main"
         state: present
   when:
     - ansible_pkg_mgr in [ "apt" ]
