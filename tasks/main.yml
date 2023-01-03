@@ -18,7 +18,7 @@
   block:
     - name: Trust gpg key
       ansible.builtin.apt_key:
-        url: "https://api.bintray.com/orgs/jfrog/keys/gpg/public.key"
+        url: "https://releases.jfrog.io/artifactory/api/gpg/key/public"
         state: present
         validate_certs: no
 
