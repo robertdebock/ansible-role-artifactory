@@ -15,6 +15,8 @@
     - ansible_pkg_mgr in [ "dnf", "yum" ]
 
 - name: Configure apt repository
+  when:
+    - ansible_pkg_mgr in [ "apt" ]
   block:
     - name: Trust gpg key
       ansible.builtin.apt_key:
@@ -26,8 +28,6 @@
       ansible.builtin.apt_repository:
         repo: "deb https://releases.jfrog.io/artifactory/artifactory-debs {{ ansible_distribution_release | lower }} main"
         state: present
-  when:
-    - ansible_pkg_mgr in [ "apt" ]
 
 - name: Install package
   ansible.builtin.package:
