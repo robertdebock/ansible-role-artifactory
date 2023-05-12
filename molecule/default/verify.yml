@@ -5,7 +5,7 @@
   gather_facts: no
 
   tasks:
-    - name: try webinterface
+    - name: Try webinterface
       ansible.builtin.uri:
         url: "http://localhost:8082/ui/"
         return_content: yes
