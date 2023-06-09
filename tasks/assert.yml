@@ -5,6 +5,7 @@
     that:
       - artifactory_file_store_dir is defined
       - artifactory_file_store_dir is string
+      - artifactory_file_store_dir is not none
     quiet: yes
 
 - name: assert | Test if artifactory_flavour is set correctly
