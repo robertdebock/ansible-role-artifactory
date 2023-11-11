@@ -1,4 +1,4 @@
-# [artifactory](#artifactory)
+# Ansible role [artifactory](#artifactory)
 
 Install and configure artifactory on your system.
 
@@ -79,8 +79,8 @@ This role has been tested on these [container images](https://hub.docker.com/u/r
 
 |container|tags|
 |---------|----|
-|[EL](https://hub.docker.com/repository/docker/robertdebock/enterpriselinux/general)|8, 9|
-|[Ubuntu](https://hub.docker.com/repository/docker/robertdebock/ubuntu/general)|bionic|
+|[EL](https://hub.docker.com/r/robertdebock/enterpriselinux)|8, 9|
+|[Ubuntu](https://hub.docker.com/r/robertdebock/ubuntu)|bionic|
 
 The minimum version of Ansible required is 2.12, tests have been done to:
 
