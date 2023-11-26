@@ -1,4 +1,4 @@
-# Ansible role [artifactory](#artifactory)
+# [Ansible role artifactory](#artifactory)
 
 Install and configure artifactory on your system.
 
