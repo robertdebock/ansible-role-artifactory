@@ -33,8 +33,6 @@ jobs:
             tag: "8"
           - image: "enterpriselinux"
             tag: "latest"
-          - image: "ubuntu"
-            tag: "bionic"
     steps:
       - name: checkout
         uses: actions/checkout@v4

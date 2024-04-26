@@ -16,8 +16,6 @@ molecule:
         tag: "8"
       - image: "enterpriselinux"
         tag: "latest"
-      - image: "ubuntu"
-        tag: "bionic"
 
 galaxy:
   script:
