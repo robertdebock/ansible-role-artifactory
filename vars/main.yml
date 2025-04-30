@@ -3,5 +3,6 @@
 
 artifactory_home: /opt/jfrog/artifactory/app/misc/etc
 artifactory_logs: /opt/jfrog/artifactory/var/log
+artifactory_var_etc: /opt/jfrog/artifactory/var/etc
 
 artifactory_package: jfrog-artifactory-{{ artifactory_flavour }}
