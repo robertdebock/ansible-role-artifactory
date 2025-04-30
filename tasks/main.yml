@@ -66,3 +66,15 @@
     name: artifactory
     state: started
     enabled: true
+
+- name: Wait for URL to be reachable
+  ansible.builtin.uri:
+    url: "http://{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}:8082/ui/"
+  register: result
+  until: "result.status == 200"
+  retries: 31
+  delay: 10
+
+- name: Output URL
+  ansible.builtin.debug:
+    msg: "Artifactory is reachable here: http://{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}:8082/ui/"
