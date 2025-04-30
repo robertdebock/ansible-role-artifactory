@@ -5,3 +5,5 @@
   ansible.builtin.service:
     name: artifactory
     state: restarted
+  when:
+    - not artifactory_service_started.changed | bool
