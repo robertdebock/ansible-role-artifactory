@@ -53,6 +53,16 @@
   notify:
     - Restart artifactory
 
+- name: Configure database connection for artifactory
+  ansible.builtin.template:
+    src: 'system.yaml.j2'
+    dest: "{{ artifactory_var_etc }}/system.yaml"
+    mode: '0644'
+    owner: 'artifactory'
+    group: 'artifactory'
+  notify:
+    - Restart artifactory
+
 - name: Set ownership for artifactory_logs
   ansible.builtin.file:
     path: "{{ artifactory_logs }}"
