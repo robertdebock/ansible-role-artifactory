@@ -61,8 +61,12 @@
     owner: artifactory
     group: artifactory
 
-- name: Start and enable artifactory
+- name: Start artifactory
   ansible.builtin.service:
     name: artifactory
     state: started
+
+- name: Enable artifactory
+  ansible.builtin.service:
+    name: artifactory
     enabled: true
