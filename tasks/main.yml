@@ -61,6 +61,23 @@
     owner: artifactory
     group: artifactory
 
+- name: Install systemd service file
+  ansible.builtin.copy:
+    src: /opt/jfrog/artifactory/misc/service/artifactory.service
+    dest: /usr/lib/systemd/system/artifactory.service
+    mode: "0644"
+    owner: root
+    group: root
+    remote_src: true
+  when:
+    - ansible_service_mgr == "systemd"
+
+- name: Reload systemd daemon
+  ansible.builtin.systemd:
+    daemon_reload: true
+  when:
+    - ansible_service_mgr == "systemd"
+
 - name: Start and enable artifactory
   ansible.builtin.service:
     name: artifactory
