@@ -7,3 +7,6 @@
   roles:
     - role: robertdebock.bootstrap
     - role: robertdebock.core_dependencies
+    - role: robertdebock.java
+      java_vendor: openjdk
+      java_type: jre
