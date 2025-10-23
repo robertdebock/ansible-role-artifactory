@@ -21,6 +21,8 @@ molecule:
     matrix:
       - image: "enterpriselinux"
         tag: "latest"
+      - image: "fedora"
+        tag: "latest"
 
 galaxy:
   image: python:3.13

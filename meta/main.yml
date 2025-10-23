@@ -11,7 +11,9 @@ galaxy_info:
     - name: EL
       versions:
         - "9"
-
+    - name: Fedora
+      versions:
+        - "42"
   galaxy_tags:
     - artifactory
     - server

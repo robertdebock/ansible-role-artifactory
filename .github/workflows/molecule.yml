@@ -31,6 +31,8 @@ jobs:
         distro:
           - image: "enterpriselinux"
             tag: "latest"
+          - image: "fedora"
+            tag: "latest"
     steps:
       - name: checkout
         uses: actions/checkout@v4
