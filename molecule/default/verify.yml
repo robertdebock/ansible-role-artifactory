@@ -7,7 +7,7 @@
   tasks:
     - name: Try webinterface
       ansible.builtin.uri:
-        url: "http://localhost:8082/ui/"
+        url: "http://localhost:8081/"
         return_content: true
       register: artifactory_try_webinterface
       failed_when:
