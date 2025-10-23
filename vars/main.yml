@@ -1,7 +1,7 @@
 ---
 # vars file for artifactory
 
-artifactory_home: /opt/jfrog/artifactory/app/misc/etc
+artifactory_home: /etc/opt/jfrog/artifactory
 artifactory_logs: /opt/jfrog/artifactory/var/log
 
 artifactory_package: jfrog-artifactory-{{ artifactory_flavour }}
