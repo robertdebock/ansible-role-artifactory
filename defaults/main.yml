@@ -7,3 +7,9 @@ artifactory_file_store_dir: /data
 # The type of installation of artifactory.
 # Choose from "oss", "jcr" or "cpp-ce".
 artifactory_flavour: oss
+
+# database settings
+artifactory_database_host: localhost
+artifactory_database_port: 5432
+artifactory_database_name: artifactory-database
+artifactory_database_user: artifactory-user
