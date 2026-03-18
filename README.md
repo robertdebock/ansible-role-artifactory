@@ -83,8 +83,8 @@ This role has been tested on these [container images](https://hub.docker.com/u/r
 
 |container|tags|
 |---------|----|
-|[EL](https://hub.docker.com/r/robertdebock/enterpriselinux)|9|
-|[Fedora](https://hub.docker.com/r/robertdebock/fedora)|42|
+|[Amazon](https://hub.docker.com/r/robertdebock/amazonlinux)|Candidate|
+|[Fedora](https://hub.docker.com/r/robertdebock/fedora)|42, 40|
 
 The minimum version of Ansible required is 2.12, tests have been done on:
 

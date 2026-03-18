@@ -13,11 +13,11 @@
     dest: /etc/yum.repos.d/bintray-jfrog-artifactory-rpms.repo
     mode: "0640"
   when:
-    - ansible_pkg_mgr in [ "dnf", "yum", "dnf5" ]
+    - ansible_facts['pkg_mgr'] in [ "dnf", "yum", "dnf5" ]
 
 - name: Configure apt repository
   when:
-    - ansible_pkg_mgr in [ "apt" ]
+    - ansible_facts['pkg_mgr'] in [ "apt" ]
   block:
     - name: Trust gpg key
       ansible.builtin.apt_key:
@@ -27,7 +27,7 @@
 
     - name: Install deb repository
       ansible.builtin.apt_repository:
-        repo: "deb https://releases.jfrog.io/artifactory/artifactory-debs {{ ansible_distribution_release | lower }} main"
+        repo: "deb https://releases.jfrog.io/artifactory/artifactory-debs {{ ansible_facts['distribution_release'] | lower }} main"
         state: present
 
 - name: Install package
@@ -78,13 +78,13 @@
     group: root
     remote_src: true
   when:
-    - ansible_service_mgr == "systemd"
+    - ansible_facts['service_mgr'] == "systemd"
 
 - name: Reload systemd daemon
   ansible.builtin.systemd:
     daemon_reload: true
   when:
-    - ansible_service_mgr == "systemd"
+    - ansible_facts['service_mgr'] == "systemd"
 
 - name: Start and enable artifactory
   ansible.builtin.service:

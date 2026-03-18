@@ -29,10 +29,12 @@ jobs:
       fail-fast: false
       matrix:
         distro:
-          - image: "enterpriselinux"
+          - image: "amazonlinux"
             tag: "latest"
           - image: "fedora"
             tag: "latest"
+          - image: "fedora"
+            tag: "40"
     steps:
       - name: checkout
         uses: actions/checkout@v4
