@@ -12,8 +12,7 @@ galaxy_info:
         - Candidate
     - name: Fedora
       versions:
-        - '42'
-        - '40'
+        - all
   galaxy_tags:
     - artifactory
     - server

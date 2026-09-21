@@ -23,8 +23,6 @@ molecule:
         tag: "latest"
       - image: "fedora"
         tag: "latest"
-      - image: "fedora"
-        tag: "40"
 
 galaxy:
   image: python:3.13
