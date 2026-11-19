@@ -95,7 +95,7 @@
   no_log: true
   when:
     - artifactory_system_yaml_content.content is not defined or
-      'postgresql' not in (artifactory_system_yaml_content.content | b64decode)
+      (artifactory_system_yaml_content.content | b64decode) is not search('(?m)^\\s*type:\\s*postgresql')
   notify:
     - Restart artifactory
 
