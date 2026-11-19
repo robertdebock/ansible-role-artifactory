@@ -8,7 +8,7 @@
     # Artifactory needs a few minutes to start.
     - name: Try the Artifactory ping API
       ansible.builtin.uri:
-        url: "http://localhost:8081/artifactory/api/system/ping"
+        url: "http://localhost:8082/artifactory/api/system/ping"
         return_content: true
       register: artifactory_try_ping
       failed_when:
