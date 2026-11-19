@@ -13,7 +13,27 @@
       register: artifactory_try_ping
       failed_when:
         - "'OK' not in artifactory_try_ping.content"
-      retries: 60
+      retries: 12
       delay: 10
       until:
         - artifactory_try_ping is succeeded
+      ignore_errors: true
+
+  post_tasks:
+    - name: DEBUG logs
+      ansible.builtin.shell: |
+        systemctl status artifactory --no-pager | head -12
+        ps aux | grep -c [j]ava
+        ls /opt/jfrog/artifactory/var/log
+        for f in /opt/jfrog/artifactory/var/log/console.log /opt/jfrog/artifactory/var/log/artifactory-service.log /opt/jfrog/artifactory/var/log/router-service.log; do echo "== $f"; tail -n 20 $f 2>&1 | cut -c1-220; done
+        free -m | head -2
+      register: dbg
+      changed_when: false
+      failed_when: false
+    - name: DEBUG show
+      ansible.builtin.debug:
+        var: dbg.stdout_lines
+
+    - name: Fail
+      ansible.builtin.fail:
+      when: artifactory_try_ping is failed
