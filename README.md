@@ -88,6 +88,8 @@ artifactory_file_store_dir: /data
 artifactory_flavour: oss
 
 # Artifactory 7 only supports PostgreSQL as its database. Create the database and user beforehand.
+# The user must own the database, because PostgreSQL 15 and later do not let other users create objects in the
+# public schema.
 # The host, port, name and user of the PostgreSQL database.
 artifactory_database_host: localhost
 artifactory_database_port: 5432
