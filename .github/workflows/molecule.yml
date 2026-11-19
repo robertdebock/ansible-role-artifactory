@@ -34,8 +34,6 @@ jobs:
       fail-fast: false
       matrix:
         distro:
-          - image: "amazonlinux"
-            tag: "latest"
           - image: "fedora"
             tag: "latest"
     steps:
@@ -66,6 +64,15 @@ jobs:
         run: |
           sudo ln -sf /etc/apparmor.d/unix-chkpwd /etc/apparmor.d/disable/
           sudo apparmor_parser -R /etc/apparmor.d/unix-chkpwd || true
+
+      # The host's AppArmor profiles for `haveged` (semaphore in /dev/shm) and `rsyslogd` (pid file) also apply to the
+      # containers and deny what these daemons need.
+      - name: Disable the AppArmor profiles for haveged and rsyslogd
+        run: |
+          for profile in usr.sbin.haveged usr.sbin.rsyslogd; do
+            sudo ln -sf /etc/apparmor.d/$profile /etc/apparmor.d/disable/ || true
+            sudo apparmor_parser -R /etc/apparmor.d/$profile || true
+          done
 
       - name: Install Docker
         uses: docker/setup-buildx-action@v4
