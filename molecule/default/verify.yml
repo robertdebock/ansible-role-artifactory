@@ -5,13 +5,15 @@
   gather_facts: false
 
   tasks:
-    - name: Try webinterface
+    # Artifactory needs a few minutes to start.
+    - name: Try the Artifactory ping API
       ansible.builtin.uri:
-        url: "http://localhost:8081/"
+        url: "http://localhost:8081/artifactory/api/system/ping"
         return_content: true
-      register: artifactory_try_webinterface
+      register: artifactory_try_ping
       failed_when:
-        - "'JFrog' not in artifactory_try_webinterface.content"
-      retries: 10
+        - "'OK' not in artifactory_try_ping.content"
+      retries: 60
+      delay: 10
       until:
-        - artifactory_try_webinterface is succeeded
+        - artifactory_try_ping is succeeded
