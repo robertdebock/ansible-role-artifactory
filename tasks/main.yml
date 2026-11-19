@@ -77,6 +77,17 @@
     owner: artifactory
     group: artifactory
 
+- name: Configure the database
+  ansible.builtin.template:
+    src: system.yaml.j2
+    dest: "{{ artifactory_system_yaml }}"
+    mode: "0640"
+    owner: artifactory
+    group: artifactory
+  no_log: true
+  notify:
+    - Restart artifactory
+
 # Artifactory 7 keeps the unit in app/misc/service, Artifactory 6 in misc/service.
 - name: Find the systemd service file
   ansible.builtin.stat:

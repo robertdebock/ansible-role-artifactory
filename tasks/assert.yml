@@ -15,3 +15,44 @@
       - artifactory_flavour is string
       - artifactory_flavour in [ "cpp-ce", "jcr", "oss" ]
     quiet: true
+
+- name: assert | Test artifactory_database_host
+  ansible.builtin.assert:
+    that:
+      - artifactory_database_host is defined
+      - artifactory_database_host is string
+      - artifactory_database_host | length > 0
+    quiet: true
+
+- name: assert | Test artifactory_database_port
+  ansible.builtin.assert:
+    that:
+      - artifactory_database_port is defined
+      - artifactory_database_port is number
+      - artifactory_database_port > 0
+      - artifactory_database_port < 65536
+    quiet: true
+
+- name: assert | Test artifactory_database_name
+  ansible.builtin.assert:
+    that:
+      - artifactory_database_name is defined
+      - artifactory_database_name is string
+      - artifactory_database_name | length > 0
+    quiet: true
+
+- name: assert | Test artifactory_database_user
+  ansible.builtin.assert:
+    that:
+      - artifactory_database_user is defined
+      - artifactory_database_user is string
+      - artifactory_database_user | length > 0
+    quiet: true
+
+- name: assert | Test artifactory_database_password
+  ansible.builtin.assert:
+    that:
+      - artifactory_database_password is defined
+      - artifactory_database_password is string
+      - artifactory_database_password | length > 0
+    quiet: true

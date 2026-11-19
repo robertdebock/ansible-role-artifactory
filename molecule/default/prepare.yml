@@ -10,3 +10,25 @@
     - role: robertdebock.java
       java_vendor: openjdk
       java_type: jre
+    - role: robertdebock.postgres
+      postgres_hba_entries:
+        - type: local
+          database: all
+          user: all
+          method: peer
+        - type: host
+          database: all
+          user: all
+          address: "127.0.0.1/32"
+          method: scram-sha-256
+        - type: host
+          database: all
+          user: all
+          address: "::1/128"
+          method: scram-sha-256
+      postgres_databases:
+        - name: artifactory
+      postgres_users:
+        - name: artifactory
+          password: artifactory
+          db: artifactory

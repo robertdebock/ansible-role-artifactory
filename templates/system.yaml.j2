@@ -1,0 +1,9 @@
+{{ ansible_managed | comment }}
+
+shared:
+  database:
+    type: postgresql
+    driver: org.postgresql.Driver
+    url: "jdbc:postgresql://{{ artifactory_database_host }}:{{ artifactory_database_port }}/{{ artifactory_database_name }}"
+    username: "{{ artifactory_database_user }}"
+    password: "{{ artifactory_database_password }}"

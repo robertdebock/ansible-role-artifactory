@@ -5,3 +5,5 @@ artifactory_home: /etc/opt/jfrog/artifactory
 artifactory_logs: /opt/jfrog/artifactory/var/log
 
 artifactory_package: jfrog-artifactory-{{ artifactory_flavour }}
+
+artifactory_system_yaml: /opt/jfrog/artifactory/var/etc/system.yaml

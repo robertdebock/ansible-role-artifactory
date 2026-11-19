@@ -19,6 +19,7 @@ This example is taken from [`molecule/default/converge.yml`](https://github.com/
 
   roles:
     - role: robertdebock.artifactory
+      artifactory_database_password: artifactory
 ```
 
 The machine needs to be prepared. In CI this is done using [`molecule/default/prepare.yml`](https://github.com/robertdebock/ansible-role-artifactory/blob/master/molecule/default/prepare.yml):
@@ -36,6 +37,28 @@ The machine needs to be prepared. In CI this is done using [`molecule/default/pr
     - role: robertdebock.java
       java_vendor: openjdk
       java_type: jre
+    - role: robertdebock.postgres
+      postgres_hba_entries:
+        - type: local
+          database: all
+          user: all
+          method: peer
+        - type: host
+          database: all
+          user: all
+          address: "127.0.0.1/32"
+          method: scram-sha-256
+        - type: host
+          database: all
+          user: all
+          address: "::1/128"
+          method: scram-sha-256
+      postgres_databases:
+        - name: artifactory
+      postgres_users:
+        - name: artifactory
+          password: artifactory
+          db: artifactory
 ```
 
 Also see a [full explanation and example](https://robertdebock.nl/how-to-use-these-roles.html) on how to use these roles.
@@ -54,6 +77,16 @@ artifactory_file_store_dir: /data
 # The type of installation of artifactory.
 # Choose from "oss", "jcr" or "cpp-ce".
 artifactory_flavour: oss
+
+# Artifactory 7 only supports PostgreSQL as its database. Create the database and user beforehand.
+# The host, port, name and user of the PostgreSQL database.
+artifactory_database_host: localhost
+artifactory_database_port: 5432
+artifactory_database_name: artifactory
+artifactory_database_user: artifactory
+
+# The password of the database user. There is no default, set this.
+artifactory_database_password: ""
 ```
 
 ## [Requirements](#requirements)
@@ -69,6 +102,7 @@ The following roles are used to prepare a system. You can prepare your system in
 |[robertdebock.bootstrap](https://galaxy.ansible.com/robertdebock/bootstrap)|[![Build Status GitHub](https://github.com/robertdebock/ansible-role-bootstrap/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-bootstrap/actions)|[![Build Status GitLab](https://gitlab.com/robertdebock-iac/ansible-role-bootstrap/badges/master/pipeline.svg)](https://gitlab.com/robertdebock-iac/ansible-role-bootstrap)|
 |[robertdebock.core_dependencies](https://galaxy.ansible.com/robertdebock/core_dependencies)|[![Build Status GitHub](https://github.com/robertdebock/ansible-role-core_dependencies/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-core_dependencies/actions)|[![Build Status GitLab](https://gitlab.com/robertdebock-iac/ansible-role-core_dependencies/badges/master/pipeline.svg)](https://gitlab.com/robertdebock-iac/ansible-role-core_dependencies)|
 |[robertdebock.java](https://galaxy.ansible.com/robertdebock/java)|[![Build Status GitHub](https://github.com/robertdebock/ansible-role-java/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-java/actions)|[![Build Status GitLab](https://gitlab.com/robertdebock-iac/ansible-role-java/badges/master/pipeline.svg)](https://gitlab.com/robertdebock-iac/ansible-role-java)|
+|[robertdebock.postgres](https://galaxy.ansible.com/robertdebock/postgres)|[![Build Status GitHub](https://github.com/robertdebock/ansible-role-postgres/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-postgres/actions)|[![Build Status GitLab](https://gitlab.com/robertdebock-iac/ansible-role-postgres/badges/master/pipeline.svg)](https://gitlab.com/robertdebock-iac/ansible-role-postgres)|
 
 ## [Context](#context)
 
