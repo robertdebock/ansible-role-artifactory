@@ -16,4 +16,6 @@ artifactory_database_name: artifactory
 artifactory_database_user: artifactory
 
 # The password of the database user. There is no default, set this.
+# The database settings are only written to system.yaml while it has no PostgreSQL configuration,
+# because Artifactory rewrites that file (it encrypts the password) when it starts.
 artifactory_database_password: ""

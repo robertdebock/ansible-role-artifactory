@@ -59,6 +59,15 @@ The machine needs to be prepared. In CI this is done using [`molecule/default/pr
         - name: artifactory
           password: artifactory
           db: artifactory
+
+  post_tasks:
+    # PostgreSQL 15 and later do not let ordinary users create objects in the public schema,
+    # so the artifactory user needs to own the database.
+    - name: Make artifactory the owner of the database
+      community.postgresql.postgresql_db:
+        db: artifactory
+        owner: artifactory
+      become_user: postgres
 ```
 
 Also see a [full explanation and example](https://robertdebock.nl/how-to-use-these-roles.html) on how to use these roles.
@@ -86,6 +95,8 @@ artifactory_database_name: artifactory
 artifactory_database_user: artifactory
 
 # The password of the database user. There is no default, set this.
+# The database settings are only written to system.yaml while it has no PostgreSQL configuration,
+# because Artifactory rewrites that file (it encrypts the password) when it starts.
 artifactory_database_password: ""
 ```
 

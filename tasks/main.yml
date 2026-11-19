@@ -77,6 +77,14 @@
     owner: artifactory
     group: artifactory
 
+# Artifactory rewrites system.yaml when it starts (it encrypts the password), so only write the
+# database settings while they are not in there yet.
+- name: Read system.yaml
+  ansible.builtin.slurp:
+    src: "{{ artifactory_system_yaml }}"
+  register: artifactory_system_yaml_content
+  failed_when: false
+
 - name: Configure the database
   ansible.builtin.template:
     src: system.yaml.j2
@@ -85,6 +93,9 @@
     owner: artifactory
     group: artifactory
   no_log: true
+  when:
+    - artifactory_system_yaml_content.content is not defined or
+      'postgresql' not in (artifactory_system_yaml_content.content | b64decode)
   notify:
     - Restart artifactory
 
