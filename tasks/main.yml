@@ -20,10 +20,11 @@
     - ansible_facts['pkg_mgr'] in [ "apt" ]
   block:
     - name: Trust gpg key
-      ansible.builtin.apt_key:
+      ansible.builtin.get_url:
         url: "https://releases.jfrog.io/artifactory/api/gpg/key/public"
-        state: present
         validate_certs: false
+        dest: /etc/apt/trusted.gpg.d/artifactory.asc
+        mode: "0644"
 
     - name: Install deb repository
       ansible.builtin.apt_repository:
@@ -69,9 +70,20 @@
     owner: artifactory
     group: artifactory
 
+# Artifactory 7 keeps the unit in app/misc/service, Artifactory 6 in misc/service.
+- name: Find the systemd service file
+  ansible.builtin.stat:
+    path: "{{ item }}"
+  loop:
+    - /opt/jfrog/artifactory/app/misc/service/artifactory.service
+    - /opt/jfrog/artifactory/misc/service/artifactory.service
+  register: artifactory_service_file_stat
+  when:
+    - ansible_facts['service_mgr'] == "systemd"
+
 - name: Install systemd service file
   ansible.builtin.copy:
-    src: /opt/jfrog/artifactory/misc/service/artifactory.service
+    src: "{{ (artifactory_service_file_stat.results | selectattr('stat.exists') | map(attribute='item') | first) }}"
     dest: /usr/lib/systemd/system/artifactory.service
     mode: "0644"
     owner: root
@@ -79,6 +91,7 @@
     remote_src: true
   when:
     - ansible_facts['service_mgr'] == "systemd"
+    - artifactory_service_file_stat.results | selectattr('stat.exists') | list | length > 0
 
 - name: Reload systemd daemon
   ansible.builtin.systemd:
