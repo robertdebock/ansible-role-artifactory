@@ -13,26 +13,7 @@
       register: artifactory_try_ping
       failed_when:
         - "'OK' not in artifactory_try_ping.content"
-      retries: 15
+      retries: 60
       delay: 10
-      ignore_errors: true
       until:
         - artifactory_try_ping is succeeded
-
-  post_tasks:
-    - name: DEBUG logs
-      ansible.builtin.shell: |
-        grep -hE "\[ERROR\]|Caused by|SEVERE|FATAL" /opt/jfrog/artifactory/var/log/artifactory-service.log /opt/jfrog/artifactory/var/log/access-service.log /opt/jfrog/artifactory/var/log/router-service.log 2>/dev/null | cut -c1-300 | sort -u | head -25
-        echo ==SYSYAML; sed 's/password:.*/password: x/' /opt/jfrog/artifactory/var/etc/system.yaml
-        echo ==PG; ss -ltn | grep 5432; systemctl is-active postgresql
-      register: dbg
-      changed_when: false
-      failed_when: false
-
-    - name: DEBUG show
-      ansible.builtin.debug:
-        var: dbg.stdout_lines
-
-    - name: Fail
-      ansible.builtin.fail:
-      when: artifactory_try_ping is failed

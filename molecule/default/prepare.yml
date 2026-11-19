@@ -32,3 +32,12 @@
         - name: artifactory
           password: artifactory
           db: artifactory
+
+  post_tasks:
+    # PostgreSQL 15 and later do not let ordinary users create objects in the public schema,
+    # so the artifactory user needs to own the database.
+    - name: Make artifactory the owner of the database
+      community.postgresql.postgresql_db:
+        db: artifactory
+        owner: artifactory
+      become_user: postgres
