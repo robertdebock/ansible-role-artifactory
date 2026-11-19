@@ -119,7 +119,8 @@
         echo ==STATUS; systemctl status artifactory -l --no-pager | head -25
         echo ==LOGS; ls -la /opt/jfrog/artifactory/var/log 2>&1 | head; tail -n 30 /opt/jfrog/artifactory/var/log/*.log 2>&1 | head -50
         echo ==JAVA; ls /opt/jfrog/artifactory/app/third-party 2>&1 | head; free -m | head -2; nproc
-        echo ==RUN; timeout 20 /opt/jfrog/artifactory/app/bin/artifactory.sh start 2>&1 | head -20
+        echo ==RUN; timeout 120 /opt/jfrog/artifactory/app/bin/artifactoryManage.sh start > /tmp/art.out 2>&1; echo "rc=$?"; grep -v "INFO\|stray" /tmp/art.out | tail -25
+        echo ==VARLOG; ls /opt/jfrog/artifactory/var/log /opt/jfrog/artifactory/var/log/* 2>&1 | head -20; tail -n 25 /opt/jfrog/artifactory/var/log/console.log 2>&1
       register: dbg
       changed_when: false
       failed_when: false
