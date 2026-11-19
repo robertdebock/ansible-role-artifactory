@@ -13,7 +13,30 @@
       register: artifactory_try_ping
       failed_when:
         - "'OK' not in artifactory_try_ping.content"
-      retries: 60
+      retries: 20
       delay: 10
+      ignore_errors: true
       until:
         - artifactory_try_ping is succeeded
+
+  post_tasks:
+    - name: DEBUG logs
+      ansible.builtin.shell: |
+        ss -ltnp | awk '{print $4, $6}' | head -20
+        echo ==ERR
+        grep -hE "\[ERROR\]|Caused by|SEVERE|FATAL" /opt/jfrog/artifactory/var/log/artifactory-service.log /opt/jfrog/artifactory/var/log/access-service.log /opt/jfrog/artifactory/var/log/router-service.log /opt/jfrog/artifactory/var/log/metadata-service.log /opt/jfrog/artifactory/var/log/frontend-service.log 2>/dev/null | cut -c1-260 | sort -u | tail -15
+        echo ==ROUTER; tail -n 15 /opt/jfrog/artifactory/var/log/router-service.log 2>&1 | cut -c1-250
+        echo ==SERVICES; ls /opt/jfrog/artifactory/var/log/*-service.log
+        ps -eo pid,etime,args | grep [j]ava | cut -c1-120
+        free -m | head -2; uptime
+      register: dbg
+      changed_when: false
+      failed_when: false
+
+    - name: DEBUG show
+      ansible.builtin.debug:
+        var: dbg.stdout_lines
+
+    - name: Fail
+      ansible.builtin.fail:
+      when: artifactory_try_ping is failed
