@@ -100,7 +100,26 @@
     - ansible_facts['service_mgr'] == "systemd"
 
 - name: Start and enable artifactory
-  ansible.builtin.service:
-    name: artifactory
-    state: started
-    enabled: true
+  block:
+    - name: Start and enable artifactory service
+      ansible.builtin.service:
+        name: artifactory
+        state: started
+        enabled: true
+  rescue:
+    - name: DEBUG collect
+      ansible.builtin.shell: |
+        set -o pipefail
+        systemctl cat artifactory | head -40
+        echo ==STATUS; systemctl status artifactory -l --no-pager | head -25
+        echo ==LOGS; ls -la /opt/jfrog/artifactory/var/log 2>&1 | head; tail -n 30 /opt/jfrog/artifactory/var/log/*.log 2>&1 | head -50
+        echo ==JAVA; ls /opt/jfrog/artifactory/app/third-party 2>&1 | head; free -m | head -2; nproc
+        echo ==RUN; timeout 20 /opt/jfrog/artifactory/app/bin/artifactory.sh start 2>&1 | head -20
+      register: dbg
+      changed_when: false
+      failed_when: false
+    - name: DEBUG show
+      ansible.builtin.debug:
+        var: dbg.stdout_lines
+    - name: Fail
+      ansible.builtin.fail:
