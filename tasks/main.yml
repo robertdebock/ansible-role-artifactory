@@ -83,7 +83,8 @@
   ansible.builtin.slurp:
     src: "{{ artifactory_system_yaml }}"
   register: artifactory_system_yaml_content
-  failed_when: false
+  failed_when:
+    - false
 
 - name: Configure the database
   ansible.builtin.template:
